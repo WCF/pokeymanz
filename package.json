@@ -1,10 +1,16 @@
 {
   "name": "poke",
   "version": "0.0.1",
-  "author": "",
+  "author": "The Wesley Chan Foundation",
   "dependencies": {
+    "geddy-coffee-templates": "0.0.3",
     "iced-coffee-script": "1.7.x",
-    "mongodb": "1.x"
+    "jade": "1.3.x",
+    "mongodb-wrapper": "1.0.x",
+    "mongodb": "1.x",
+    "grunt": "~0.4.4",
+    "grunt-contrib-watch": "~0.6.1",
+    "gulp": "~3.6.0"
   },
   "devDependencies": {},
   "engines": {
