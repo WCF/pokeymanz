@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "author": "",
   "dependencies": {
+    "iced-coffee-script": "1.7.x",
     "mongodb": "1.x"
   },
   "devDependencies": {},
