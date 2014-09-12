@@ -3,11 +3,7 @@
 dist
 node_modules
 bower_components
-Gruntfile.js
 bower.json
 *.DS_Store
 log/
 npm-debug.log
-config/secrets.json
-public/js/core/models.js
-public/js/core/helpers.js

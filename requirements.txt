@@ -1,2 +1,0 @@
-geddy==0.12.9
-# geddy gen app poke
