@@ -58,8 +58,11 @@
 
         map.setView([lat, lng], 16);
 
-        addMarker('red.png', [43.4534, -80.49783]);
-        addMarker('gym.png', [lat, lng], {autoSize: true, popup: 'Cerulean Gym'});
+        addMarker('red.png', [lat, lng]);
+        addMarker('gym.png', [43.438683,-80.460562], {autoSize: true, popup: 'World Gym Kitchener'});
+        addMarker('gym2.png', [43.4569133,-80.4891244], {autoSize: true, popup: 'LA Fitness Gym'});
+        addMarker('gym3.png', [43.4540692,-80.5038234], {autoSize: true, popup: 'Aradia Fitness Gym'});
+        addMarker('pkmn_net_sprite_resource_4/PokВmon/HGSS/Male/92.png', [43.45871325152533, -80.50661087036133]);
 
     }, function () {  // error
         map.setView([43.470985487887056, -80.54265975952148], 12);
