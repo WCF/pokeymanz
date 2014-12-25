@@ -1,9 +1,10 @@
+.idea
 *.swp
 *.swo
 dist
 node_modules
 bower_components
 bower.json
-*.DS_Store
+.DS_Store
 log/
 npm-debug.log
