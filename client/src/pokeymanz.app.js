@@ -1,15 +1,17 @@
 /*global L*/
-(function ($, map) {
+(function ($) {
     "use strict";
 
+    var speciesCount = 151,
+        spritePath = '../static/sprites/',
+        map = L.map('map');
+
     function getIcon(file, width, height) {
-        var currentZoom = map.getZoom(),
-            factor = currentZoom * 0.02;
         var iconCfg = {
             iconUrl: file
         };
         if (width && height) {
-            iconCfg.iconSize = [width * factor, height * factor];
+            iconCfg.iconSize = [width, height];
         }
 
         return L.icon(iconCfg);
@@ -17,7 +19,8 @@
 
     function addMarker(file, latlng, options) {
         options = options || {};
-        var lat = latlng[0],
+        var file = spritePath + file,
+            lat = latlng[0],
             lng = latlng[1],
             img = new Image(),
             autoSize = options.autoSize || false,
@@ -25,11 +28,13 @@
 
         img.src = file;
         img.onload = function () {
-            var myIcon, marker;
+            var myIcon, marker,
+                currentZoom = map.getZoom(),
+                factor = currentZoom * 0.02;
             if (autoSize) {
-                myIcon = getIcon(file, this.width, this.height);
+                myIcon = getIcon(file, this.width * factor, this.height * factor);
             } else {
-                myIcon = getIcon(file);
+                myIcon = getIcon(file, options.width, options.height);
             }
 
             marker = L.marker([lat, lng], {icon: myIcon, riseOnHover: true});
@@ -62,7 +67,10 @@
         addMarker('gym.png', [43.438683,-80.460562], {autoSize: true, popup: 'World Gym Kitchener'});
         addMarker('gym2.png', [43.4569133,-80.4891244], {autoSize: true, popup: 'LA Fitness Gym'});
         addMarker('gym3.png', [43.4540692,-80.5038234], {autoSize: true, popup: 'Aradia Fitness Gym'});
-        addMarker('pkmn_net_sprite_resource_4/PokВmon/HGSS/Male/92.png', [43.45871325152533, -80.50661087036133]);
+
+        for (var i = 1; i < speciesCount; i++) {
+            addMarker('monsters/front/' + i + '.png', [43.45 + Math.random() - 0.5, -80.50 + Math.random() - 0.5], {width: 48, height: 48});
+        }
 
     }, function () {  // error
         map.setView([43.470985487887056, -80.54265975952148], 12);
@@ -79,4 +87,4 @@
         id: 'examples.map-i875mjb7'
     }).addTo(map);
 
-}(window.jQuery, L.map('map')));
+}(window.jQuery));
